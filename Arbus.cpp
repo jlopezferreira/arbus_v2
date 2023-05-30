@@ -64,24 +64,15 @@ bool Arbus<T>::esVacio()
 template <typename T>
 bool Arbus<T>::pertenece(T elemento)
 {
-    return existeElemento(raiz, elemento);
-}
-
-template <typename T>
-bool Arbus<T>::existeElemento(Nodo * raiz, T elemento)
-{
-    if (raiz->elemento == elemento) {
-        return true;
-    } else if (elemento < raiz->elemento) {
-        if (raiz->izq != NULL)
-            return existeElemento(raiz->izq, elemento);
+    if (esVacio())
+        return false;
+    else {
+        if (elemento < raiz->elemento)
+            return subIzquierdo()->pertenece(elemento);
+        else if (elemento > raiz->elemento)
+            return subDerecho()->pertenece(elemento);
         else
-            return false;
-    } else if (elemento > raiz->elemento) {
-        if (raiz->der != NULL)
-            return existeElemento(raiz->der, elemento);
-        else
-            return false;
+            return true;
     }
 }
 

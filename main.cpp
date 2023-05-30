@@ -12,7 +12,7 @@ int main()
     arbol.agregar(25);
     arbol.agregar(15);
 
-    if (arbol.pertenece(10))
+    if (arbol.pertenece(16))
         cout << "Pertenece" << endl;
     else
         cout << "No pertenece" << endl;
