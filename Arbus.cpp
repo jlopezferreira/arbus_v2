@@ -95,17 +95,14 @@ bool Arbus<T>::esHoja()
 template <typename T>
 int Arbus<T>::cantidadElementos()
 {
-    return contar(raiz);
-}
-
-template <typename T>
-int Arbus<T>::contar(Nodo * raiz)
-{
-    int contador = 1;
-    if (raiz->izq != NULL)
-        contador += contar(raiz->izq);
-    if (raiz->der != NULL)
-        contador += contar(raiz->der);
+    int contador;
+    if (esVacio())
+        contador = 0;
+    else {
+        contador = 1;
+        contador += subIzquierdo()->cantidadElementos();
+        contador += subDerecho()->cantidadElementos();
+    }
     return contador;
 }
 
@@ -131,9 +128,7 @@ template <typename T>
 Arbus<T> * Arbus<T>::subIzquierdo() const
 {
     Arbus<T> * subIzq = new Arbus;
-    if (raiz->izq != NULL) {
-        subIzq->raiz = raiz->izq;
-    }
+    subIzq->raiz = raiz->izq;
     return subIzq;
 }
 
