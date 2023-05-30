@@ -109,4 +109,40 @@ int Arbus<T>::contar(Nodo * raiz)
     return contador;
 }
 
+template <typename T>
+int Arbus<T>::profundidad()
+{
+    int profundidad;
+    if (esVacio()) {
+        profundidad = 0;
+    } else {
+        profundidad = 1;
+        int izqProf = subIzquierdo()->profundidad();
+        int derProf = subDerecho()->profundidad();
+        if (izqProf <= derProf)
+            profundidad += derProf;
+        else
+            profundidad += izqProf;
+    }
+    return profundidad;
+}
+
+template <typename T>
+Arbus<T> * Arbus<T>::subIzquierdo() const
+{
+    Arbus<T> * subIzq = new Arbus;
+    if (raiz->izq != NULL) {
+        subIzq->raiz = raiz->izq;
+    }
+    return subIzq;
+}
+
+template <typename T>
+Arbus<T> * Arbus<T>::subDerecho() const
+{
+    Arbus<T> * subDer = new Arbus;
+    subDer->raiz = raiz->der;
+    return subDer;
+}
+
 template class Arbus<int>;

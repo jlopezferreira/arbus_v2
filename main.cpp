@@ -19,5 +19,8 @@ int main()
 
     int cantElem = arbol.cantidadElementos();
     cout << "Cantidad de elementos: " << cantElem << endl;
+
+    int profundidad = arbol.profundidad();
+    cout << "Profundidad: " << profundidad << endl;
     return 0;
 }

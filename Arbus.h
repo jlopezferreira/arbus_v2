@@ -29,9 +29,10 @@ public:
     bool pertenece(T elemento);
     int cantidadElementos();
     int profundidad();
+    Arbus<T> * subIzquierdo() const; // pre: not esVacio
+    Arbus<T> * subDerecho() const; // pre: not esVacio
     // T raizArbus(); // pre: not esVacio
-    // Nodo * subIzquierdo(); // pre: not esVacio
-    // Nodo * subDerecho(); // pre: not esVacio
+
     // bool eliminar(T elemento);
 };
 
