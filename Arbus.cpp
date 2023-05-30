@@ -1,18 +1,21 @@
 #include <iostream>
 #include "Arbus.h"
 
+// Contructor
 template <typename T>
 Arbus<T>::Arbus()
 {
     raiz = NULL;
 }
 
+// Destructor
 template <typename T>
 Arbus<T>::~Arbus()
 {
     raiz = NULL;
 }
 
+// Agregar elementos
 template <typename T>
 void Arbus<T>::agregar(T elemento)
 {
@@ -51,6 +54,13 @@ void Arbus<T>::crearNodo(T elemento, Nodo * & padre)
     padre = nuevo;
 }
 
+// Vacio
+template <typename T>
+bool Arbus<T>::esVacio()
+{
+    return raiz == NULL;
+}
+// Pertenece
 template <typename T>
 bool Arbus<T>::pertenece(T elemento)
 {
@@ -73,6 +83,30 @@ bool Arbus<T>::existeElemento(Nodo * raiz, T elemento)
         else
             return false;
     }
+}
+
+template <typename T>
+bool Arbus<T>::esHoja(Nodo * raiz)
+{
+    return raiz->izq == NULL && raiz->der == NULL;
+}
+
+// Cantidad de elementos
+template <typename T>
+int Arbus<T>::cantidadElementos()
+{
+    return contar(raiz);
+}
+
+template <typename T>
+int Arbus<T>::contar(Nodo * raiz)
+{
+    int contador = 1;
+    if (raiz->izq != NULL)
+        contador += contar(raiz->izq);
+    if (raiz->der != NULL)
+        contador += contar(raiz->der);
+    return contador;
 }
 
 template class Arbus<int>;

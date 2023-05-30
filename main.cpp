@@ -17,5 +17,7 @@ int main()
     else
         cout << "No pertenece" << endl;
 
+    int cantElem = arbol.cantidadElementos();
+    cout << "Cantidad de elementos: " << cantElem << endl;
     return 0;
 }
