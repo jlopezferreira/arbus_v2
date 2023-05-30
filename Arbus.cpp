@@ -86,7 +86,7 @@ bool Arbus<T>::existeElemento(Nodo * raiz, T elemento)
 }
 
 template <typename T>
-bool Arbus<T>::esHoja(Nodo * raiz)
+bool Arbus<T>::esHoja()
 {
     return raiz->izq == NULL && raiz->der == NULL;
 }
@@ -143,6 +143,19 @@ Arbus<T> * Arbus<T>::subDerecho() const
     Arbus<T> * subDer = new Arbus;
     subDer->raiz = raiz->der;
     return subDer;
+}
+
+template <typename T>
+void Arbus<T>::mostrarFrontera()
+{
+    if (!esVacio()) {
+        if (esHoja()) {
+            std::cout << raiz->elemento << std::endl;
+        } else {
+            subIzquierdo()->mostrarFrontera();
+            subDerecho()->mostrarFrontera();
+        }
+    }
 }
 
 template class Arbus<int>;

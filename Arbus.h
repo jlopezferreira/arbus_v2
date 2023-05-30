@@ -18,7 +18,6 @@ private:
     void crearArbol(Nodo * & raiz, T elemento);
     void crearNodo(T elemento, Nodo * & padre);
     bool existeElemento(Nodo * raiz, T elemento);
-    bool esHoja(Nodo * raiz);
     int contar(Nodo * raiz);
 
 public:
@@ -29,8 +28,11 @@ public:
     bool pertenece(T elemento);
     int cantidadElementos();
     int profundidad();
+    bool esHoja();
     Arbus<T> * subIzquierdo() const; // pre: not esVacio
     Arbus<T> * subDerecho() const; // pre: not esVacio
+    void mostrarFrontera();
+    void mostrarEnOrden();
     // T raizArbus(); // pre: not esVacio
 
     // bool eliminar(T elemento);

@@ -22,5 +22,8 @@ int main()
 
     int profundidad = arbol.profundidad();
     cout << "Profundidad: " << profundidad << endl;
+
+    arbol.mostrarFrontera();
+
     return 0;
 }
