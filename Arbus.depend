@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1685417057 source:c:\users\win10\sistemas\arbus\arbus.cpp
+1685417321 source:c:\users\win10\sistemas\arbus\arbus.cpp
 	<iostream>
 	"Arbus.h"
 

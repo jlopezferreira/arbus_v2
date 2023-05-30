@@ -158,4 +158,14 @@ void Arbus<T>::mostrarFrontera()
     }
 }
 
+template <typename T>
+void Arbus<T>::mostrarEnOrden()
+{
+    if (!esVacio()) {
+        subIzquierdo()->mostrarEnOrden();
+        std::cout << raiz->elemento << std::endl;
+        subDerecho()->mostrarEnOrden();
+    }
+}
+
 template class Arbus<int>;
